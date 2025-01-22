@@ -1,0 +1,37 @@
+/ GameOn3x.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+// The #include directive is a way to include external files or libraries in your program. It ensures that the definitions, declarations, or code from the specified file is made available to your program.
+// the <iostream>  defines objects like std::cin, std::cout, std::cerr, and std::clog for handling input and output:
+#include <iostream>
+
+//A namespace in C++ is a container for identifiers (like classes, functions, variables) that helps avoid name conflicts in large programs.
+//When you write using namespace std;, you are telling the compiler to use all the names (like cout, cin, endl, etc.) from the std namespace without needing to prefix them with std::.
+
+using namespace std;
+
+// The keyword int specifies that the main function returns an integer value.
+// The return value from main() is used to indicate the program's exit status to the operating system:
+//main is the name of the function where the program starts executing.It is required in every C++ program and is always called automatically when the program runs.
+// The operating system invokes main() to begin program execution
+
+int main()
+{
+    // cout Stands for "character output."
+    //It is an object from the <iostream> library that represents the standard output stream(usually the console).
+
+    cout << "Game Over!" << endl;
+    // was told that this return vakue did not matter and was not yet needed
+    return 0;
+
+}
+
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
