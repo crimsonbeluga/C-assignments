@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace temp_converter_submission_assignment
+{
+    public partial class Form1 : Form
+    {
+        // Stores the last converted unit value
+        private double lastConvertedUnit;
+
+        // Stores the selected conversion type (Dollars to Vbuvks and Vbucks to dollars
+        private string conversionType = "Dollars to Vbucks";
+
+        // Stores the application name
+        private string applicationName = "Vbuck Converter";
+
+        public Form1()
+        {
+            InitializeComponent();
+            this.Text = applicationName; // Set the form title
+        }
+
+        // Event handler for the Convert button click
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            double inputUnit;
+
+            // Ensure the input is a valid number
+            if (double.TryParse(txtInput.Text, out inputUnit))
+            {
+                // Perform the Unit conversion based on the selected conversion type
+                if (conversionType == "Dollars to Vbucks")
+                {
+                    lastConvertedUnit = (inputUnit * 100);
+                }
+                else
+                {
+                    lastConvertedUnit = (inputUnit * .01) ;
+                }
+
+                // Display the converted value in the output textbox
+                txtOutput.Text = lastConvertedUnit.ToString("F2");
+
+                // Update the label to show the last converted value
+                lblLastConverted.Text = $"Last Converted: {lastConvertedUnit:F2}";
+            }
+            else
+            {
+                // Show an error message if the input is invalid
+                MessageBox.Show("Please enter a valid number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // Event handler for the conversion type selection change
+        private void comboBoxConversionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            conversionType = comboBoxConversionType.SelectedItem.ToString(); // Update the conversion type based on selection
+        }
+
+        // Event handler for the Clear button click
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtInput.Text = ""; // Clear the input field
+            txtOutput.Text = ""; // Clear the output field
+            lblLastConverted.Text = "Last Converted: "; // Reset the last converted label
+        }
+
+        // Event handler for form load - initializes the combo box with conversion options
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBoxConversionType.Items.Add("Dollars to Vbucks");
+            comboBoxConversionType.Items.Add("Vbucks to Dollars");
+            comboBoxConversionType.SelectedIndex = 0; // Set the default selection
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+    }
+}
